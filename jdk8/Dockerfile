@@ -3,8 +3,8 @@ LABEL maintainer="john.lin@ringcentral.com"
 
 CMD ["gradle"]
 
-ENV GRADLE_HOME /opt/gradle
-ENV GRADLE_VERSION 5.0
+ENV GRADLE_VERSION=5.0 \
+	GRADLE_HOME=/opt/gradle
 
 ARG GRADLE_DOWNLOAD_SHA256=6157ac9f3410bc63644625b3b3e9e96c963afd7910ae0697792db57813ee79a6
 RUN set -o errexit -o nounset \
