@@ -1,12 +1,12 @@
-FROM ringcentral/jdk:8u202-alpine3.12
+FROM ringcentral/jdk:8u202-alpine3.14
 LABEL maintainer="john.lin@ringcentral.com"
 
 CMD ["gradle"]
 
-ENV GRADLE_VERSION=6.5.1 \
+ENV GRADLE_VERSION=6.9.1 \
 	GRADLE_HOME=/opt/gradle
 
-ARG GRADLE_DOWNLOAD_SHA256=50a7d30529fa939721fe9268a0205142f3f2302bcac5fb45b27a3902e58db54a
+ARG GRADLE_DOWNLOAD_SHA256=8c12154228a502b784f451179846e518733cf856efc7d45b2e6691012977b2fe
 RUN set -o errexit -o nounset \
     && echo "Downloading Gradle" \
     && wget --no-verbose --output-document=gradle.zip "https://services.gradle.org/distributions/gradle-${GRADLE_VERSION}-bin.zip" \

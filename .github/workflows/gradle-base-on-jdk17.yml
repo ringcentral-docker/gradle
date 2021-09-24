@@ -1,4 +1,4 @@
-name: Build Gradle base on JDK 11
+name: Build Gradle base on JDK 17
 
 on:
   push:
@@ -6,7 +6,7 @@ on:
       - master
     paths:
       # '*' matches any character except '/'
-      - 'jdk11/*'
+      - 'jdk17/*'
       - '.github/workflows/*'
 jobs:
   build:
@@ -25,7 +25,7 @@ jobs:
 
     - name: Build & Push Docker Image
       run: |  
-        cd jdk11
+        cd jdk17
         IMAGE_NAME=ringcentral/gradle
         GH_DOCKER_PKG_IMAGE_NAME=docker.pkg.github.com/ringcentral-docker/gradle/gradle
 
