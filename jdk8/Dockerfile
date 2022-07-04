@@ -1,4 +1,4 @@
-FROM ringcentral/jdk:8u202-alpine3.14
+FROM ringcentral/jdk:8u332-alpine3.16.0
 LABEL maintainer="john.lin@ringcentral.com"
 
 CMD ["gradle"]
