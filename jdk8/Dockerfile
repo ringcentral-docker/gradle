@@ -1,4 +1,4 @@
-FROM registry.danbao.dev/ringcentral/jdk:8u432-alpine
+FROM ghcr.io/ringcentral-docker/jdk/jdk:8u432-alpine
 LABEL maintainer="john.lin@ringcentral.com"
 
 CMD ["gradle"]
