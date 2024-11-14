@@ -21,13 +21,13 @@ jobs:
         
       run: |
         echo $DOCKER_HUB_PASSWORD | docker login --username $DOCKER_HUB_USERNAME --password-stdin
-        echo $GITHUB_TOKEN | docker login docker.pkg.github.com --username $GITHUB_ACTOR --password-stdin
+        echo $GITHUB_TOKEN | docker login ghcr.io --username $GITHUB_ACTOR --password-stdin
 
     - name: Build & Push Docker Image
       run: |  
         cd jdk21
         IMAGE_NAME=ringcentral/gradle
-        GH_DOCKER_PKG_IMAGE_NAME=docker.pkg.github.com/ringcentral-docker/gradle/gradle
+        GH_DOCKER_PKG_IMAGE_NAME=ghcr.io/ringcentral-docker/gradle/gradle
 
         VERSION="$(awk -F= '/GRADLE_VERSION=/ {print $2}' Dockerfile | cut -d " " -f 1)"
         JAVA_VERSION="jdk$(awk -F '[:-]' '/FROM/ {print $2}' Dockerfile)"
