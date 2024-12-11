@@ -6,7 +6,7 @@ CMD ["gradle"]
 ENV GRADLE_VERSION=8.11 \
 	GRADLE_HOME=/opt/gradle
 
-ARG GRADLE_DOWNLOAD_SHA256=936f16e90d95df170320fec7b01418d0f4c165099440446466eb93a05cef0c2a
+ARG GRADLE_DOWNLOAD_SHA256=57dafb5c2622c6cc08b993c85b7c06956a2f53536432a30ead46166dbca0f1e9
 RUN set -o errexit -o nounset \
     && echo "Downloading Gradle" \
     && wget --no-verbose --output-document=gradle.zip "https://services.gradle.org/distributions/gradle-${GRADLE_VERSION}-bin.zip" \
