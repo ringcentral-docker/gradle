@@ -1,23 +1,6 @@
-
-# Gradle
-
-## Build Status
-
-[![Build Gradle base on JDK 17](https://github.com/ringcentral-docker/gradle/actions/workflows/gradle-base-on-jdk17.yml/badge.svg)](https://github.com/ringcentral-docker/gradle/actions/workflows/gradle-base-on-jdk17.yml)
-
-[![Build Gradle base on JDK 11](https://github.com/ringcentral-docker/gradle/actions/workflows/gradle-base-on-jdk11.yml/badge.svg)](https://github.com/ringcentral-docker/gradle/actions/workflows/gradle-base-on-jdk11.yml)
-
-[![Build Gradle base on JDK 8](https://github.com/ringcentral-docker/gradle/actions/workflows/gradle-base-on-jdk8.yml/badge.svg)](https://github.com/ringcentral-docker/gradle/actions/workflows/gradle-base-on-jdk8.yml)
-
-## Image description
-
-* Base on the latest version of ringCentral/jdk Docker Image : [link](https://hub.docker.com/r/ringcentral/jdk/)
-
-## Get the Image
-
-```bash
-docker pull ringcentral/gradle:latest
-```
-
-for more detail information please refer this url:
-<https://github.com/ringcentral-docker/gradle>
+| JDK Version | Gradle Version | Docker Hub | GitHub Package |
+|-------------|----------------|------------|----------------|
+| JDK11 | 6.9.1 | `ringcentral/gradle:6.9.1` `ringcentral/gradle:6.9.1-jdk11.0.25` `ringcentral/gradle:6.9.1-jdk11.0.25-alpine`| `ghcr.io/ringcentral-docker/gradle/gradle:6.9.1` `ghcr.io/ringcentral-docker/gradle/gradle:6.9.1-jdk11.0.25` `ghcr.io/ringcentral-docker/gradle/gradle:6.9.1-jdk11.0.25-alpine` |
+| JDK17 | 8.11 | `ringcentral/gradle:8.11` `ringcentral/gradle:8.11-jdk17.0.13` `ringcentral/gradle:8.11-jdk17.0.13-alpine`| `ghcr.io/ringcentral-docker/gradle/gradle:8.11` `ghcr.io/ringcentral-docker/gradle/gradle:8.11-jdk17.0.13` `ghcr.io/ringcentral-docker/gradle/gradle:8.11-jdk17.0.13-alpine` |
+| JDK21 | 8.11 | `ringcentral/gradle:8.11` `ringcentral/gradle:8.11-jdk21.0.5` `ringcentral/gradle:8.11-jdk21.0.5-alpine`| `ghcr.io/ringcentral-docker/gradle/gradle:8.11` `ghcr.io/ringcentral-docker/gradle/gradle:8.11-jdk21.0.5` `ghcr.io/ringcentral-docker/gradle/gradle:8.11-jdk21.0.5-alpine` |
+| JDK8 | 6.9.1 | `ringcentral/gradle:6.9.1` `ringcentral/gradle:6.9.1-jdk8u432` `ringcentral/gradle:6.9.1-jdk8u432-alpine`| `ghcr.io/ringcentral-docker/gradle/gradle:6.9.1` `ghcr.io/ringcentral-docker/gradle/gradle:6.9.1-jdk8u432` `ghcr.io/ringcentral-docker/gradle/gradle:6.9.1-jdk8u432-alpine` |
