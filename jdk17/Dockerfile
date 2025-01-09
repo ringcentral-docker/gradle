@@ -1,4 +1,4 @@
-FROM ghcr.io/ringcentral-docker/jdk/jdk:17.0.13-alpine
+FROM ghcr.io/ringcentral-docker/jdk/jdk:17.0.13-noble
 LABEL maintainer="john.lin@ringcentral.com"
 
 CMD ["gradle"]
