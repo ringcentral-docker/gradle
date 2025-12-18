@@ -1,0 +1,172 @@
+name: Build Gradle Images
+
+on:
+  push:
+    branches:
+      - master
+    paths:
+      - 'Dockerfile'
+      - 'versions/**'
+      - '.github/workflows/build.yml'
+  workflow_dispatch:
+    inputs:
+      version:
+        description: 'Specific version to build (e.g., gradle-jdk21), or "all"'
+        required: false
+        default: 'all'
+
+env:
+  DOCKER_HUB_IMAGE: ringcentral/gradle
+  GHCR_IMAGE: ghcr.io/ringcentral-docker/gradle
+  BASE_OS: noble
+
+jobs:
+  prepare:
+    runs-on: ubuntu-latest
+    outputs:
+      matrix: ${{ steps.set-matrix.outputs.matrix }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Generate build matrix
+        id: set-matrix
+        run: |
+          if [[ "${{ github.event_name }}" == "workflow_dispatch" && "${{ github.event.inputs.version }}" != "all" ]]; then
+            MATRIX=$(jq -c --arg v "${{ github.event.inputs.version }}" \
+              '{include: [.versions[] | select(.name == $v)]}' versions/versions.json)
+          else
+            MATRIX=$(jq -c '{include: .versions}' versions/versions.json)
+          fi
+          echo "matrix=${MATRIX}" >> $GITHUB_OUTPUT
+
+  build:
+    needs: prepare
+    runs-on: ubuntu-latest
+    strategy:
+      matrix: ${{ fromJson(needs.prepare.outputs.matrix) }}
+      fail-fast: false
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up QEMU
+        uses: docker/setup-qemu-action@v3
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Login to Docker Hub
+        uses: docker/login-action@v3
+        with:
+          username: ${{ secrets.DOCKER_HUB_USERNAME }}
+          password: ${{ secrets.DOCKER_HUB_PASSWORD }}
+
+      - name: Login to GitHub Container Registry
+        uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Generate Docker tags
+        id: meta
+        run: |
+          GRADLE_VER="${{ matrix.gradle_version }}"
+          JDK_VER="${{ matrix.jdk_version }}"
+          JDK_TAG="${{ matrix.jdk_tag }}"
+          IS_LATEST="${{ matrix.is_latest }}"
+
+          TAGS=""
+          for REGISTRY in "${{ env.DOCKER_HUB_IMAGE }}" "${{ env.GHCR_IMAGE }}"; do
+            TAGS="${TAGS}${REGISTRY}:${GRADLE_VER}-jdk${JDK_TAG},"
+            TAGS="${TAGS}${REGISTRY}:${GRADLE_VER}-jdk${JDK_VER},"
+            if [[ "${IS_LATEST}" == "true" ]]; then
+              TAGS="${TAGS}${REGISTRY}:${GRADLE_VER},"
+              TAGS="${TAGS}${REGISTRY}:latest,"
+            fi
+          done
+
+          echo "tags=${TAGS%,}" >> $GITHUB_OUTPUT
+
+      - name: Build and push
+        uses: docker/build-push-action@v6
+        with:
+          context: .
+          file: ./Dockerfile
+          platforms: linux/amd64,linux/arm64
+          push: true
+          tags: ${{ steps.meta.outputs.tags }}
+          build-args: |
+            JDK_TAG=${{ matrix.jdk_tag }}
+            GRADLE_VERSION=${{ matrix.gradle_version }}
+            GRADLE_SHA256=${{ matrix.gradle_sha256 }}
+          cache-from: type=gha,scope=${{ matrix.name }}
+          cache-to: type=gha,mode=max,scope=${{ matrix.name }}
+
+  update-readme:
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Generate README from versions.json
+        run: |
+          cat > README.md << 'HEADER'
+          # Gradle Docker Images
+
+          Multi-platform Gradle Docker images based on RingCentral JDK.
+
+          ## Supported Platforms
+
+          - linux/amd64
+          - linux/arm64
+
+          ## Available Images
+
+          | Name | Gradle | JDK | Docker Hub | GitHub Package |
+          |------|--------|-----|------------|----------------|
+          HEADER
+
+          jq -r --arg hub "${{ env.DOCKER_HUB_IMAGE }}" \
+                --arg ghcr "${{ env.GHCR_IMAGE }}" \
+            '.versions[] |
+              "| \(.name) | \(.gradle_version) | \(.jdk_version) | `\($hub):\(.gradle_version)-jdk\(.jdk_tag)` | `\($ghcr):\(.gradle_version)-jdk\(.jdk_tag)` |"
+            ' versions/versions.json >> README.md
+
+          cat >> README.md << 'FOOTER'
+
+          ## Usage
+
+          ```bash
+          docker pull ringcentral/gradle:8.11-jdk21
+          docker run -it ringcentral/gradle:8.11-jdk21 gradle --version
+          ```
+
+          ## Build Locally
+
+          ```bash
+          docker build \
+            --build-arg JDK_TAG=21.0.9-noble \
+            --build-arg GRADLE_VERSION=8.11 \
+            --build-arg GRADLE_SHA256=57dafb5c2622c6cc08b993c85b7c06956a2f53536432a30ead46166dbca0f1e9 \
+            -t my-gradle:8.11-jdk21 .
+          ```
+
+          ## License
+
+          MIT License
+          FOOTER
+
+      - name: Commit README
+        run: |
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+          git add README.md
+          if git diff --staged --quiet; then
+            echo "No changes to commit"
+          else
+            git commit -m "docs: update README with Docker image info"
+            git push
+          fi

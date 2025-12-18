@@ -1,0 +1,52 @@
+{
+  "versions": [
+    {
+      "name": "gradle-jdk8",
+      "jdk_version": "8",
+      "jdk_tag": "8u472-noble",
+      "gradle_version": "6.9.1",
+      "gradle_sha256": "8c12154228a502b784f451179846e518733cf856efc7d45b2e6691012977b2fe",
+      "is_latest": false
+    },
+    {
+      "name": "gradle-jdk11",
+      "jdk_version": "11",
+      "jdk_tag": "11.0.29-noble",
+      "gradle_version": "6.9.1",
+      "gradle_sha256": "8c12154228a502b784f451179846e518733cf856efc7d45b2e6691012977b2fe",
+      "is_latest": false
+    },
+    {
+      "name": "gradle-jdk17",
+      "jdk_version": "17",
+      "jdk_tag": "17.0.17-noble",
+      "gradle_version": "8.11",
+      "gradle_sha256": "57dafb5c2622c6cc08b993c85b7c06956a2f53536432a30ead46166dbca0f1e9",
+      "is_latest": false
+    },
+    {
+      "name": "gradle-jdk21",
+      "jdk_version": "21",
+      "jdk_tag": "21.0.9-noble",
+      "gradle_version": "8.11",
+      "gradle_sha256": "57dafb5c2622c6cc08b993c85b7c06956a2f53536432a30ead46166dbca0f1e9",
+      "is_latest": true
+    },
+    {
+      "name": "gradle-jdk25",
+      "jdk_version": "25",
+      "jdk_tag": "25.0.1-noble",
+      "gradle_version": "8.11",
+      "gradle_sha256": "57dafb5c2622c6cc08b993c85b7c06956a2f53536432a30ead46166dbca0f1e9",
+      "is_latest": false
+    }
+  ],
+  "common": {
+    "base_os": "noble",
+    "registry": {
+      "docker_hub": "ringcentral/gradle",
+      "ghcr": "ghcr.io/ringcentral-docker/gradle"
+    },
+    "platforms": ["linux/amd64", "linux/arm64"]
+  }
+}
