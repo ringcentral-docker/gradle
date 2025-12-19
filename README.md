@@ -11,11 +11,11 @@ Multi-platform Gradle Docker images based on RingCentral JDK.
 
 | Name | Gradle | JDK | Docker Hub | GitHub Package |
 |------|--------|-----|------------|----------------|
-| gradle-jdk8 | 6.9.1 | 8 | `ringcentral/gradle:6.9.1-jdk8u472-noble` | `ghcr.io/ringcentral-docker/gradle:6.9.1-jdk8u472-noble` |
-| gradle-jdk11 | 6.9.1 | 11 | `ringcentral/gradle:6.9.1-jdk11.0.29-noble` | `ghcr.io/ringcentral-docker/gradle:6.9.1-jdk11.0.29-noble` |
-| gradle-jdk17 | 8.11 | 17 | `ringcentral/gradle:8.11-jdk17.0.17-noble` | `ghcr.io/ringcentral-docker/gradle:8.11-jdk17.0.17-noble` |
-| gradle-jdk21 | 8.11 | 21 | `ringcentral/gradle:8.11-jdk21.0.9-noble` | `ghcr.io/ringcentral-docker/gradle:8.11-jdk21.0.9-noble` |
-| gradle-jdk25 | 8.11 | 25 | `ringcentral/gradle:8.11-jdk25.0.1-noble` | `ghcr.io/ringcentral-docker/gradle:8.11-jdk25.0.1-noble` |
+| gradle-jdk8 | 6.9.4 | 8 | `ringcentral/gradle:6.9.4-jdk8u472-noble` | `ghcr.io/ringcentral-docker/gradle:6.9.4-jdk8u472-noble` |
+| gradle-jdk11 | 6.9.4 | 11 | `ringcentral/gradle:6.9.4-jdk11.0.29-noble` | `ghcr.io/ringcentral-docker/gradle:6.9.4-jdk11.0.29-noble` |
+| gradle-jdk17 | 9.2.1 | 17 | `ringcentral/gradle:9.2.1-jdk17.0.17-noble` | `ghcr.io/ringcentral-docker/gradle:9.2.1-jdk17.0.17-noble` |
+| gradle-jdk21 | 9.2.1 | 21 | `ringcentral/gradle:9.2.1-jdk21.0.9-noble` | `ghcr.io/ringcentral-docker/gradle:9.2.1-jdk21.0.9-noble` |
+| gradle-jdk25 | 9.2.1 | 25 | `ringcentral/gradle:9.2.1-jdk25.0.1-noble` | `ghcr.io/ringcentral-docker/gradle:9.2.1-jdk25.0.1-noble` |
 
 ## Usage
 
