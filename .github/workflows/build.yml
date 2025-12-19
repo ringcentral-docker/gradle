@@ -100,8 +100,9 @@ jobs:
             JDK_TAG=${{ matrix.jdk_tag }}
             GRADLE_VERSION=${{ matrix.gradle_version }}
             GRADLE_SHA256=${{ matrix.gradle_sha256 }}
-          cache-from: type=gha,scope=${{ matrix.name }}
-          cache-to: type=gha,mode=max,scope=${{ matrix.name }}
+          no-cache: true
+          # cache-from: type=gha,scope=${{ matrix.name }}
+          # cache-to: type=gha,mode=max,scope=${{ matrix.name }}
 
   update-readme:
     needs: build
