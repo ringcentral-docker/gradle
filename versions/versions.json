@@ -3,41 +3,41 @@
     {
       "name": "gradle-jdk8",
       "jdk_version": "8",
-      "jdk_tag": "8u472-noble",
-      "gradle_version": "6.9.4",
-      "gradle_sha256": "3e240228538de9f18772a574e99a0ba959e83d6ef351014381acd9631781389a",
+      "jdk_tag": "8u482-noble",
+      "gradle_version": "7.6.4",
+      "gradle_sha256": "bed1da33cca0f557ab13691c77f38bb67388119e4794d113e051039b80af9bb1",
       "is_latest": false
     },
     {
       "name": "gradle-jdk11",
       "jdk_version": "11",
-      "jdk_tag": "11.0.29-noble",
-      "gradle_version": "6.9.4",
-      "gradle_sha256": "3e240228538de9f18772a574e99a0ba959e83d6ef351014381acd9631781389a",
+      "jdk_tag": "11.0.30-noble",
+      "gradle_version": "7.6.4",
+      "gradle_sha256": "bed1da33cca0f557ab13691c77f38bb67388119e4794d113e051039b80af9bb1",
       "is_latest": false
     },
     {
       "name": "gradle-jdk17",
       "jdk_version": "17",
-      "jdk_tag": "17.0.17-noble",
-      "gradle_version": "9.2.1",
-      "gradle_sha256": "72f44c9f8ebcb1af43838f45ee5c4aa9c5444898b3468ab3f4af7b6076c5bc3f",
+      "jdk_tag": "17.0.18-noble",
+      "gradle_version": "9.4.1",
+      "gradle_sha256": "2ab2958f2a1e51120c326cad6f385153bb11ee93b3c216c5fccebfdfbb7ec6cb",
       "is_latest": false
     },
     {
       "name": "gradle-jdk21",
       "jdk_version": "21",
-      "jdk_tag": "21.0.9-noble",
-      "gradle_version": "9.2.1",
-      "gradle_sha256": "72f44c9f8ebcb1af43838f45ee5c4aa9c5444898b3468ab3f4af7b6076c5bc3f",
+      "jdk_tag": "21.0.10-noble",
+      "gradle_version": "9.4.1",
+      "gradle_sha256": "2ab2958f2a1e51120c326cad6f385153bb11ee93b3c216c5fccebfdfbb7ec6cb",
       "is_latest": true
     },
     {
       "name": "gradle-jdk25",
       "jdk_version": "25",
-      "jdk_tag": "25.0.1-noble",
-      "gradle_version": "9.2.1",
-      "gradle_sha256": "72f44c9f8ebcb1af43838f45ee5c4aa9c5444898b3468ab3f4af7b6076c5bc3f",
+      "jdk_tag": "25.0.2-noble",
+      "gradle_version": "9.4.1",
+      "gradle_sha256": "2ab2958f2a1e51120c326cad6f385153bb11ee93b3c216c5fccebfdfbb7ec6cb",
       "is_latest": false
     }
   ],
