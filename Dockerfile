@@ -1,10 +1,10 @@
 # Parameterized Gradle Dockerfile
 #
 # Build example:
-#   docker build --build-arg JDK_TAG=21.0.10-noble --build-arg GRADLE_VERSION=9.4.1 \
+#   docker build --build-arg JDK_TAG=21.0.12.1-noble --build-arg GRADLE_VERSION=9.4.1 \
 #     --build-arg GRADLE_SHA256=2ab2958f2a1e51120c326cad6f385153bb11ee93b3c216c5fccebfdfbb7ec6cb .
 
-ARG JDK_TAG=21.0.10-noble
+ARG JDK_TAG=21.0.12.1-noble
 
 FROM ghcr.io/ringcentral-docker/jdk:${JDK_TAG}
 

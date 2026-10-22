@@ -3,7 +3,7 @@
     {
       "name": "gradle-jdk8",
       "jdk_version": "8",
-      "jdk_tag": "8u482-noble",
+      "jdk_tag": "8u504-noble",
       "gradle_version": "7.6.4",
       "gradle_sha256": "bed1da33cca0f557ab13691c77f38bb67388119e4794d113e051039b80af9bb1",
       "is_latest": false
@@ -11,7 +11,7 @@
     {
       "name": "gradle-jdk11",
       "jdk_version": "11",
-      "jdk_tag": "11.0.30-noble",
+      "jdk_tag": "11.0.32.1-noble",
       "gradle_version": "7.6.4",
       "gradle_sha256": "bed1da33cca0f557ab13691c77f38bb67388119e4794d113e051039b80af9bb1",
       "is_latest": false
@@ -19,7 +19,7 @@
     {
       "name": "gradle-jdk17",
       "jdk_version": "17",
-      "jdk_tag": "17.0.18-noble",
+      "jdk_tag": "17.0.20.1-noble",
       "gradle_version": "9.4.1",
       "gradle_sha256": "2ab2958f2a1e51120c326cad6f385153bb11ee93b3c216c5fccebfdfbb7ec6cb",
       "is_latest": false
@@ -27,7 +27,7 @@
     {
       "name": "gradle-jdk21",
       "jdk_version": "21",
-      "jdk_tag": "21.0.10-noble",
+      "jdk_tag": "21.0.12.1-noble",
       "gradle_version": "9.4.1",
       "gradle_sha256": "2ab2958f2a1e51120c326cad6f385153bb11ee93b3c216c5fccebfdfbb7ec6cb",
       "is_latest": true
@@ -35,7 +35,7 @@
     {
       "name": "gradle-jdk25",
       "jdk_version": "25",
-      "jdk_tag": "25.0.2-noble",
+      "jdk_tag": "25.0.4.1-noble",
       "gradle_version": "9.4.1",
       "gradle_sha256": "2ab2958f2a1e51120c326cad6f385153bb11ee93b3c216c5fccebfdfbb7ec6cb",
       "is_latest": false

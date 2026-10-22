@@ -98,6 +98,7 @@ jobs:
           context: .
           file: ./Dockerfile
           platforms: linux/amd64,linux/arm64
+          pull: true
           push: true
           tags: ${{ steps.meta.outputs.tags }}
           build-args: |
@@ -168,7 +169,7 @@ jobs:
 
           ```bash
           docker build \
-            --build-arg JDK_TAG=21.0.10-noble \
+            --build-arg JDK_TAG=21.0.12.1-noble \
             --build-arg GRADLE_VERSION=9.4.1 \
             --build-arg GRADLE_SHA256=2ab2958f2a1e51120c326cad6f385153bb11ee93b3c216c5fccebfdfbb7ec6cb \
             -t my-gradle:9.4.1-jdk21 .
